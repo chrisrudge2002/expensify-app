@@ -5,19 +5,13 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
+import * as expenseActions from './actions/expenses';
+
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-
 import './firebase/firebase';
 
-import * as expenseActions from './actions/expenses';
-import * as filterActions from './actions/filters';
-
 const store = configureStore();
-
-const expOne = store.dispatch(expenseActions.addExpense({ description: 'Water bill', amount: 4500 }));
-const expTwo = store.dispatch(expenseActions.addExpense({ description: 'Gas bill', createdAt: 1000}));
-const expThree = store.dispatch(expenseActions.addExpense({ description: 'Rent', amount: 109500 }));
 
 const app = (
     <Provider store={store}>
@@ -25,4 +19,9 @@ const app = (
     </Provider>
 );
 
+ReactDOM.render(<p>Loading ...</p>, document.getElementById('app'));
 ReactDOM.render(app, document.getElementById('app'));
+
+console.log(store.dispatch(expenseActions.getExpenses()));
+
+//store.dispatch(expenseActions.getExpenses()).then(() => ReactDOM.render(app, document.getElementById('app')));

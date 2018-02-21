@@ -1,36 +1,36 @@
 import * as expenseActions from '../../actions/expenses';
 import { expenseActionTypes } from '../../actions/types';
+import expenses from '../fixtures/expenses';
 
 test('should generate add expense action with provided values', () => {
-    const expenseData = {
-        description: 'Rent',
-        amount: 109500,
-        createdAt: 1000,
-        note: 'This was last months rent'
-    };
-    const action = expenseActions.addExpense(expenseData);
+    const action = expenseActions.addExpense(expenses[2]);
     expect(action).toEqual({
         type: expenseActionTypes.ADD_EXPENSE,
-        expense: {
-            ...expenseData,
-            id: expect.any(String)
-        }
+        expense: expenses[2]
     })
 });
 
-test('should generate add expense action with default values', () => {
-    const action = expenseActions.addExpense();
-    expect(action).toEqual({
-        type: expenseActionTypes.ADD_EXPENSE,
-        expense: {
-            id: expect.any(String),
-            description: '',
-            amount: 0,
-            createdAt: 0,
-            note: ''
-        }
-    })
-});
+test('should add expense to database and store', () => {
+
+})
+
+test('should add expense with defaults to database and store', () => {
+
+})
+
+// test('should generate add expense action with default values', () => {
+//     const action = expenseActions.addExpense();
+//     expect(action).toEqual({
+//         type: expenseActionTypes.ADD_EXPENSE,
+//         expense: {
+//             id: expect.any(String),
+//             description: '',
+//             amount: 0,
+//             createdAt: 0,
+//             note: ''
+//         }
+//     })
+// });
 
 test('should generate edit expense action', () => {
     const action = expenseActions.editExpense('123abc', { 
@@ -46,9 +46,10 @@ test('should generate edit expense action', () => {
 });
 
 test('should generate remove expense action', () => {
-    const action = expenseActions.removeExpense({ id: '123abc' });
+    const id = '123abc';
+    const action = expenseActions.removeExpense(id);
     expect(action).toEqual({
         type: expenseActionTypes.REMOVE_EXPENSE,
-        id: '123abc'
+        id
     })
 });

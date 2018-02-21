@@ -19,6 +19,8 @@ export default (state = defaultState, action) => {
                 }
                 return e;
             });
+        case expenseActionTypes.GOT_EXPENSES:
+            return action.expenseList;
         case expenseActionTypes.REMOVE_EXPENSE: 
             return state.filter(e => e.id !== action.id);
         default: 
