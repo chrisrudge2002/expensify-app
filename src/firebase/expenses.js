@@ -1,4 +1,4 @@
-import  database from './firebase';
+import database from './firebase';
 
 export const addExpenseToDatabase = async (expense) => {
     const result = await database.ref('expenses').push(expense);

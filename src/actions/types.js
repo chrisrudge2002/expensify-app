@@ -1,3 +1,10 @@
+export const authActionTypes = {
+    LOGGED_IN: 'LOGGED_IN',
+    LOGGED_OUT: 'LOGGED_OUT',
+    START_LOGIN: 'START_LOGIN',
+    START_LOGOUT: 'START_LOGOUT',
+};
+
 export const expenseActionTypes = {
     ADD_EXPENSE: 'ADD_EXPENSE',
     EDIT_EXPENSE: 'EDIT_EXPENSE',
@@ -14,5 +21,5 @@ export const filterActionTypes = {
     SET_START_DATE: 'SET_START_DATE',
     SET_TEXT_FILTER: 'SET_TEXT_FILTER',
     SORT_BY_AMOUNT: 'SORT_BY_AMOUNT',
-    SORT_BY_DATE: 'SORT_BY_DATE'
+    SORT_BY_DATE: 'SORT_BY_DATE',
 }
