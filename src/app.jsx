@@ -8,6 +8,8 @@ import configureStore from './store/configureStore';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
+import './firebase/firebase';
+
 import * as expenseActions from './actions/expenses';
 import * as filterActions from './actions/filters';
 

@@ -2,7 +2,7 @@ import moment from 'moment';
 import selectExpenses from '../../selectors/expenses';
 import expenses from '../fixtures/expenses';
 
-test('should filter by text value', () => {
+test('Should filter by text value', () => {
     const filters = { 
         text: 'e',
         sortBy: 'date',
