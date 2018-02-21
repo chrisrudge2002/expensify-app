@@ -20,8 +20,10 @@ const app = (
 );
 
 ReactDOM.render(<p>Loading ...</p>, document.getElementById('app'));
-ReactDOM.render(app, document.getElementById('app'));
+store.dispatch(expenseActions.getExpenses())
 
-console.log(store.dispatch(expenseActions.getExpenses()));
-
-//store.dispatch(expenseActions.getExpenses()).then(() => ReactDOM.render(app, document.getElementById('app')));
+store.subscribe(() => {
+    if(store.getState().misc.expensesRetrieved) {
+        ReactDOM.render(app, document.getElementById('app'));
+    }
+});
