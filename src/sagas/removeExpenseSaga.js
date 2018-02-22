@@ -1,4 +1,4 @@
-import { put, take, call } from 'redux-saga/effects';
+import { put, take, call, select } from 'redux-saga/effects';
 import { expenseActionTypes } from '../actions/types';
 import * as expenseActions from '../actions/expenses';
 
@@ -8,7 +8,8 @@ export default function* removeExpenseAsync() {
     while(true)
     {
         const action = yield take(expenseActionTypes.START_REMOVE_EXPENSE);
-        yield call(removeExpenseFromDatabase, action.id);
+        const userid = yield select(state => state.auth.userid);
+        yield call(removeExpenseFromDatabase, action.id, userid);
         yield put(expenseActions.removeExpense(action.id))
     }
 }

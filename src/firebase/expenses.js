@@ -1,23 +1,23 @@
 import database from './firebase';
 
-export const addExpenseToDatabase = async (expense) => {
-    const result = await database.ref('expenses').push(expense);
+export const addExpenseToDatabase = async (expense, userid) => {
+    const result = await database.ref(`users/${userid}/expenses`).push(expense);
     return {
         ...expense,
         id: result.key
     };    
 };
 
-export const editExpenseInDatabase = async (id, updates) => {
-    await database.ref(`expenses/${id}`).update({...updates});    
+export const editExpenseInDatabase = async (id, updates, userid) => {
+    await database.ref(`users/${userid}/expenses/${id}`).update({...updates});    
 };
 
-export const removeExpenseFromDatabase = async (id) => {
-    await database.ref(`expenses/${id}`).remove();
+export const removeExpenseFromDatabase = async (id, userid) => {
+    await database.ref(`users/${userid}/expenses/${id}`).remove();
 }
 
-export const getExpensesFromDatabase = async () => {
-    const snapshot = await database.ref('expenses').once('value');
+export const getExpensesFromDatabase = async (userid) => {
+    const snapshot = await database.ref(`users/${userid}/expenses`).once('value');
     const expenses = [];
     snapshot.forEach((item) => {
         expenses.push({
