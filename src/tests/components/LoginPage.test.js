@@ -10,7 +10,6 @@ beforeEach(() => {
 });
 
 test('should render LoginPage component correctly', () => {
-    const wrapper = shallow(<LoginPage />);
     expect(wrapper).toMatchSnapshot();
 });
 
