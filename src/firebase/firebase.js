@@ -5,7 +5,7 @@ const config = {
     authDomain: "expensify-app-71442.firebaseapp.com",
     databaseURL: "https://expensify-app-71442.firebaseio.com",
     projectId: "expensify-app-71442",
-    storageBucket: "",
+    storageBucket: "expensify-app-71442.appspot.com",
     messagingSenderId: "818919110065"
 };
 
