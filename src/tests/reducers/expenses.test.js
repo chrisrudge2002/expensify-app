@@ -67,3 +67,8 @@ test('should not remove expense if id not found', () => {
     const state = reducer(expenses, action);
     expect(state).toEqual(expenses);
 });
+
+test('should populate expenses on data retrieval', () => {
+    const state = reducer(undefined, { type: expenseActionTypes.GOT_EXPENSES, expenseList: expenses });
+    expect(state).toEqual(expenses);
+});

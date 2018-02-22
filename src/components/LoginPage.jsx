@@ -6,7 +6,7 @@ export const LoginPage = ({ startLogin }) => (
     <div>
         <button onClick={startLogin}>Login</button>
     </div>
-)
+);
 
 const mapDispatchToProps = (dispatch) => ({
     startLogin: () => dispatch(authActions.startLogin())

@@ -3,24 +3,24 @@ import { all } from 'redux-saga/effects';
 import createSagaMiddleware from 'redux-saga';
 import authRootSaga from '../sagas/authRootSaga';
 import expensesRootSaga from '../sagas/expensesRootSaga';
+import authReducer from '../reducers/auth';
 import expenseReducer from '../reducers/expenses';
 import filterReducer from '../reducers/filters';
-import miscReducer from '../reducers/misc';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 function *rootSaga() {
 	yield all([
-        expensesRootSaga(),
         authRootSaga(),
+        expensesRootSaga(),
     ]);
 }
 
 export default () => {
     const reducer = combineReducers({
+        auth: authReducer,
         expenses: expenseReducer,
         filters: filterReducer,
-        misc: miscReducer
     });
 
     const sagaMiddleware = createSagaMiddleware();

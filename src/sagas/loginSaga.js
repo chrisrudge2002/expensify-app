@@ -8,7 +8,7 @@ export default function* loginAsync() {
     while(true)
     {
         const action = yield take(authActionTypes.START_LOGIN);
-        var dbExpense = yield call(login);
-        yield put(authActions.loggedIn());
+        var userid = yield call(login);
+        yield put(authActions.loggedIn(userid));
     }
 }

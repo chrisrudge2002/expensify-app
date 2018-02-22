@@ -2,7 +2,7 @@ import { put, take, call } from 'redux-saga/effects';
 import { authActionTypes } from '../actions/types';
 import * as authActions from '../actions/auth';
 
-import { login } from '../firebase/auth'
+import { logout } from '../firebase/auth'
 
 export default function* logoutAsync() {
     while(true)

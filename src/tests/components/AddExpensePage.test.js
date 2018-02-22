@@ -11,11 +11,11 @@ beforeEach(() => {
     wrapper = shallow(<AddExpensePage startAddExpense={startAddExpense} history={history} />);
 });
 
-test('Should render AddExpensePage correctly', () => {
+test('should render AddExpensePage correctly', () => {
     expect(wrapper).toMatchSnapshot();
 });
 
-test('Should handle onSubmit (add expense)', () => {
+test('should handle onSubmit (add expense)', () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
     expect(history.push).toHaveBeenLastCalledWith('/');
     expect(startAddExpense).toHaveBeenLastCalledWith(expenses[1]);

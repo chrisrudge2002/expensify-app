@@ -13,9 +13,10 @@ export const startLogout = () => {
 };
 
 
-export const loggedIn = () => {
+export const loggedIn = (userid) => {
     return {
-        type: authActionTypes.LOGGED_IN
+        type: authActionTypes.LOGGED_IN,
+        userid
     };
 };
 

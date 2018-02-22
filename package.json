@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "firebase": "^4.10.0",
+    "history": "^4.7.2",
     "moment": "^2.20.1",
     "normalize.css": "^7.0.0",
     "numeraljs": "^1.5.6",

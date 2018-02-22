@@ -1,4 +1,4 @@
-import { expenseActionTypes } from '../actions/types';
+import { authActionTypes, expenseActionTypes } from '../actions/types';
 
 const defaultState = [];
 
@@ -21,6 +21,8 @@ export default (state = defaultState, action) => {
             });
         case expenseActionTypes.GOT_EXPENSES:
             return action.expenseList;
+        case authActionTypes.LOGGED_OUT:
+            return [];
         case expenseActionTypes.REMOVE_EXPENSE: 
             return state.filter(e => e.id !== action.id);
         default: 

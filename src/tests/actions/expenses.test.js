@@ -53,3 +53,18 @@ test('should generate remove expense action', () => {
         id
     })
 });
+
+test('should generate get expenses action', () => {
+    const action = expenseActions.getExpenses();
+    expect(action).toEqual({
+        type: expenseActionTypes.GET_EXPENSES
+    })
+});
+
+test('should generate got expenses action', () => {
+    const action = expenseActions.gotExpenses(expenses);
+    expect(action).toEqual({
+        type: expenseActionTypes.GOT_EXPENSES,
+        expenseList: expenses
+    })
+});
