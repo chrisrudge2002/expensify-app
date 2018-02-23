@@ -4,7 +4,6 @@ export const startAddExpense = ({ description = '', note = '', amount = 0, creat
     return {
         type: expenseActionTypes.START_ADD_EXPENSE,
         expense: {
-            id: '',
             description,
             note,
             amount,
